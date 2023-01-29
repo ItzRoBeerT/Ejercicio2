@@ -31,4 +31,7 @@ export class DetallesPage implements OnInit {
   ngOnInit() {
    
   }
+  eliminarCurso(curso: string){
+    this.servicio.deleteCurso(curso);
+  }
 }

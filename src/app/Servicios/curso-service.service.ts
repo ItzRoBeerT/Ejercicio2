@@ -28,7 +28,7 @@ export class CursoServiceService {
   }
 
   deleteCurso(curso: String) {
-    this.listaCursos = this.listaCursos.filter((c) => c.nombre == curso);
+    this.listaCursos = this.listaCursos.filter((c) => c.nombre != curso);
     this._cursos$.next(this.listaCursos);
   }
 

@@ -56,11 +56,12 @@ export class FormAddComponent implements OnInit {
       let c = new Curso(curso.value, puntuacion.value)
       c.url= this.urlImagen
       this.cursoServicio.addCurso(c);
+      this.mostrarToastAdd('bottom');
     }
     this.hayFoto=false;
     this.urlImagen= '';
     this.curso.setValue('');
-    this.puntuacion.setValue('')
+    this.puntuacion.setValue('');
   }
 
 
@@ -76,13 +77,22 @@ export class FormAddComponent implements OnInit {
     if (imgUrl != '') {
       this.hayFoto=true;
       this.urlImagen=imgUrl!
-      this.mostrarToast('bottom');
+      this.mostrarToastFoto('bottom');
     }
   }
 
-  async mostrarToast(position:'bottom'){
+  async mostrarToastFoto(position:'middle'|'bottom'){
     const toast = await this.toastController.create({
       message:'Foto insertada correctamente',
+      duration:1500,
+      position: position
+    });
+    await toast.present();
+  }
+
+  async mostrarToastAdd(position:'middle'|'bottom'){
+    const toast = await this.toastController.create({
+      message:'Curso insertado correctamente',
       duration:1500,
       position: position
     });
