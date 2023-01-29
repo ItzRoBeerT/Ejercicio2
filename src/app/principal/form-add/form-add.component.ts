@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { AlertController, IonNav } from '@ionic/angular';
+import { AlertController, IonNav, ToastController } from '@ionic/angular';
 import { Curso } from 'src/app/Model/curso';
 import { CursoServiceService } from 'src/app/Servicios/curso-service.service';
 import { Camera, CameraResultType } from '@capacitor/camera';
@@ -24,7 +24,8 @@ export class FormAddComponent implements OnInit {
 
   constructor(
     private alertController: AlertController,
-    private cursoServicio: CursoServiceService
+    private cursoServicio: CursoServiceService,
+    private toastController: ToastController
   ) {
 
   }
@@ -75,7 +76,16 @@ export class FormAddComponent implements OnInit {
     if (imgUrl != '') {
       this.hayFoto=true;
       this.urlImagen=imgUrl!
-   
+      this.mostrarToast('bottom');
     }
+  }
+
+  async mostrarToast(position:'bottom'){
+    const toast = await this.toastController.create({
+      message:'Foto insertada correctamente',
+      duration:1500,
+      position: position
+    });
+    await toast.present();
   }
 }
