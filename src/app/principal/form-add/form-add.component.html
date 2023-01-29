@@ -10,6 +10,9 @@
       placeholder="Puntuacion"
       formControlName="puntuacion"
     ></ion-input>
+    <ion-button shape="round" (click)="takePic()" [ngClass]="{'primary':!hayFoto, 'success':hayFoto}" #btn>
+      📷
+    </ion-button>
     <ion-button shape="round" (click)="mostrarAlerta(this.curso,this.puntuacion)" >
       add
     </ion-button>
