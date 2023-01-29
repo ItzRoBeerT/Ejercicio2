@@ -22,7 +22,7 @@ export class PrincipalPage implements OnInit {
     this.cursos$.subscribe(curso=> this.cursos=curso);
   }
 
-  verDetalles(nombreCurso: string){
+  async verDetalles(nombreCurso: string){
     this.router.navigate(['/','detalles',{curso:nombreCurso}]);
   }
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AlertController, IonNav } from '@ionic/angular';
 import { Curso } from 'src/app/Model/curso';
@@ -62,6 +62,7 @@ export class FormAddComponent implements OnInit {
     this.puntuacion.setValue('')
   }
 
+
   async takePic() {
  
     const image = await Camera.getPhoto({
@@ -74,6 +75,7 @@ export class FormAddComponent implements OnInit {
     if (imgUrl != '') {
       this.hayFoto=true;
       this.urlImagen=imgUrl!
+   
     }
   }
 }

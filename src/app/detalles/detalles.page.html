@@ -10,7 +10,7 @@
 <ion-grid >
   <ion-row>
     <ion-card >
-      <img  src="{{urlImagen}}" />
+      <ion-img [src]="urlImagen" #img></ion-img>
       <ion-card-header>
         <ion-card-title>{{curso.nombre}}</ion-card-title>
       </ion-card-header>
